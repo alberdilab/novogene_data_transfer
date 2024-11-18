@@ -9,5 +9,6 @@ Code for automatic data transfer, unpacking and archiving sequencing data from N
 5. Launch the data transfer with the following command.
 
 ```
-screen -dmS Novogene_Transfer sh novogene_transfer.sh
+screen -dmS Novogene_Transfer sh novogene_transfer.sh [ERDA path]
+#screen -dmS Novogene_Transfer sh novogene_transfer.sh 3D-omics/databatches/MSEB0016_23
 ```
