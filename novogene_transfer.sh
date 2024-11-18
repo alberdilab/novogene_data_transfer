@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if an argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path_argument>"
+    exit 1
+fi
+
 ## Download files
 if ls *.csv 1> /dev/null 2>&1; then
     wget -i *.csv
@@ -23,3 +29,11 @@ done
 ## Move all fq.gz files to the working directory
 mv */*/*/*.fq.gz .
 
+## Transfer data to ERDA
+echo "Transferring .fq.gz files to $remote_path using SFTP..."
+ERDA <<EOF
+cd $remote_path
+lcd $(pwd)
+mput *.fq.gz
+bye
+EOF
