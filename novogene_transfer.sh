@@ -31,7 +31,7 @@ mv */*/*/*.fq.gz .
 
 ## Transfer data to ERDA
 echo "Transferring .fq.gz files to $remote_path using SFTP..."
-ERDA <<EOF
+erda <<EOF
 cd $remote_path
 lcd $(pwd)
 mput *.fq.gz
