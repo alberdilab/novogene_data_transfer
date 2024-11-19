@@ -6,7 +6,7 @@ Code for automatic data transfer, unpacking and archiving sequencing data from N
 2. Check all files and click "Export link" button to download a csv file with all links.
 3. Clone this repository and rename it. `mv novogene_data_transfer [my_custom_name]`. This custom name could be the novogene identifier, e.g. X205SC24105544-Z01-F001.
 4. Place the place the csv containing the links file in the repository directory, for instance using FilleZilla.
-5. Make sure the alias ERDA with the appropriate ssh key is created.
+5. Make sure the alias `erda` with the appropriate ssh key is created.
 6. Launch the data transfer with the following command.
 
 ```
