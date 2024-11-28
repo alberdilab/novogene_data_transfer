@@ -16,6 +16,7 @@ mv novogene_data_transfer [my_custom_name]
 7. Launch the data transfer with the following command.
 
 ```
+cd [my_custom_name]
 screen -dmS Novogene_Transfer sh novogene_transfer.sh [ERDA path]
 #screen -dmS Novogene_Transfer sh novogene_transfer.sh 3D-omics/databatches/MSEB0016_23
 ```
