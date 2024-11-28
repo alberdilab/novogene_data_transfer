@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Assign the remote path from the argument
+remote_path=$1
+
 # Check if an argument is provided
 if [ "$#" -ne 1 ]; then
     echo "Usage: $0 <path_argument>"
@@ -32,7 +35,7 @@ mv */*/*/*.fq.gz .
 ## Transfer data to ERDA
 echo "Transferring .fq.gz files to $remote_path using SFTP..."
 erda <<EOF
-cd $remote_path
+cd $remote_path || exit
 lcd $(pwd)
 mput *.fq.gz
 bye
