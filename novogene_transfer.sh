@@ -2,6 +2,7 @@
 
 # Assign the remote path from the argument
 remote_path=$1
+local_path=$(pwd)
 
 # Check if an argument is provided
 if [ "$#" -ne 1 ]; then
@@ -32,11 +33,15 @@ done
 ## Move all fq.gz files to the working directory
 mv */*/*/*.fq.gz .
 
+# Expand aliases for "erda" to work
+shopt -s expand_aliases
+source ~/.bashrc
+
 ## Transfer data to ERDA
 echo "Transferring .fq.gz files to $remote_path using SFTP..."
 erda <<EOF
 cd $remote_path || exit
-lcd $(pwd)
+lcd $local_path
 mput *.fq.gz
 bye
 EOF
